@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  resources :refuels, only: [:index, :create]
+
+  root to: 'abastecimentos#index'
+  resources :abastecimentos, only: [:index, :create, :show]
+
 end

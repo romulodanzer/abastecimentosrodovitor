@@ -1,0 +1,69 @@
+<div class="container">
+<button id="back-button" onclick="goBack()">Voltar</button>
+<script>
+function goBack() {
+    window.location.href = '/';
+}
+</script>
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Filial:</h3>
+      <p><%= @abastecimento.filial %></p>
+
+      <h3>Equipamento:</h3>
+      <p><%= @abastecimento.equipemento %></p>
+
+      <h3>Motorista:</h3>
+      <p><%= @abastecimento.motorista %></p>
+    </div>
+
+    <div class="col-md-6">
+      <h3>Hodômetro:</h3>
+      <p><%= @abastecimento.hodometro %></p>
+
+      <h3>Quantidade:</h3>
+      <p><%= @abastecimento.qtd %></p>
+
+      <h3>Inicial:</h3>
+      <p><%= @abastecimento.inicial %></p>
+
+      <h3>Final:</h3>
+      <p><%= @abastecimento.final %></p>
+    </div>
+  </div>
+
+  <hr>
+
+  <h3>Imagens:</h3>
+  <table class="table">
+    <tr>
+      <td><%= image_tag @abastecimento.foto_hodometro, alt: 'Hodômetro' %></td>
+      <td><%= image_tag @abastecimento.foto_inicial, alt: 'Inicial' %></td>
+      <td><%= image_tag @abastecimento.foto_final, alt: 'Final' %></td>
+    </tr>
+  </table>
+
+  <!-- Modal -->
+  <div class="modal" id="imageModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="" id="imagePreview" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  $(document).ready(function() {
+    $('.table td').click(function() {
+      $('#imagePreview').attr('src', $(this).find('img').attr('src'));
+      $('#imageModal').modal('show');
+    });
+  });
+</script>

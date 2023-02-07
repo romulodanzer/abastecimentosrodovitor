@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FuelTracker</title>
+    <title>Abastecimentos Rodovitor</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,22 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-dark bg-primary">
+      <a class="navbar-brand" href="#">
+        <img src="https://rodovitortransportes.com.br/wp-content/uploads/2021/05/cropped-Rodovitor.png" width="250" height="70" class="d-inline-block align-top" alt="">
+        <ul>
+          <li>Registro de Abastecimentos</li>
+        </ul>
+      </a>
+
+
+    </nav>
     <%= yield %>
   </body>
+<style>
+  .navbar {
+    background-color: #0000FF;
+  }
+  </style>
 </html>
+

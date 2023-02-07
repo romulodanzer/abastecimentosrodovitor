@@ -1,7 +1,7 @@
 <!-- app/views/abastecimentos/index.html.erb -->
 <div class="container">
   <h1>Abastecimentos</h1>
-  <%= form_tag refuels_path, method: :get do %>
+  <%= form_tag abastecimentos_path, method: :get do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search..." %>
     <%= submit_tag "Search", name: nil %>
   <% end %>
@@ -17,17 +17,19 @@
         <th>Qtd</th>
         <th>Inicial</th>
         <th>Final</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <% @abastecimentos.each do |abastecimento| %>
             <tr>
-                <td><%= refuel.equipment %></td>
-                <td><%= refuel.driver %></td>
-                <td><%= refuel.odometer %></td>
-                <td><%= refuel.qty %></td>
-                <td><%= refuel.initial %></td>
-                <td><%= refuel.final %></td>
+                <td><%= abastecimento.equipemento %></td>
+                <td><%= abastecimento.motorista %></td>
+                <td><%= abastecimento.hodometro %></td>
+                <td><%= abastecimento.qtd %></td>
+                <td><%= abastecimento.inicial %></td>
+                <td><%= abastecimento.final %></td>
+                <td><%= link_to 'Detalhes', abastecimento %></td>
         </tr>
       <% end %>
     </tbody>

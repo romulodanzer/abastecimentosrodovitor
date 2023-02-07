@@ -17,6 +17,15 @@ class AbastecimentosController < ApplicationController
         render json: @abastecimento.errors, status: :unprocessable_entity
       end
     end
+
+    def show
+      @abastecimento = Abastecimento.find(params[:id])
+      respond_to do |format|
+        format.html
+      end
+    end
+    
+
   
     private
   
