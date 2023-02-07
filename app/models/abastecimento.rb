@@ -1,0 +1,2 @@
+class Abastecimento < ApplicationRecord
+end

@@ -1,0 +1,66 @@
+<!-- app/views/abastecimentos/index.html.erb -->
+<div class="container">
+  <h1>Abastecimentos</h1>
+  <%= form_tag refuels_path, method: :get do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search..." %>
+    <%= submit_tag "Search", name: nil %>
+  <% end %>
+  <% if params[:search].present? %>
+    <%= link_to "Print", "#", id: "print-button", class: "btn btn-primary" %>
+  <% end %>
+  <table class="table">
+  <thead>
+    <tr>
+        <th>Equipamento</th>
+        <th>Motorista</th>
+        <th>Hodômetro</th>
+        <th>Qtd</th>
+        <th>Inicial</th>
+        <th>Final</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @abastecimentos.each do |abastecimento| %>
+            <tr>
+                <td><%= refuel.equipment %></td>
+                <td><%= refuel.driver %></td>
+                <td><%= refuel.odometer %></td>
+                <td><%= refuel.qty %></td>
+                <td><%= refuel.initial %></td>
+                <td><%= refuel.final %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @abastecimentos %>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const search = "<%= params[:search].present? %>";
+    const printButton = document.getElementById("print-button");
+    if (!search) {
+      printButton.style.display = "none";
+    } else {
+      printButton.style.display = "block";
+    }
+    printButton.addEventListener("click", function() {
+      const rows = document.querySelectorAll("tbody tr");
+      for (const row of rows) {
+        const odometerImage = row.querySelector("td:nth-child(4) img");
+        const initialImage = row.querySelector("td:nth-child(6) img");
+        const finalImage = row.querySelector("td:nth-child(7) img");
+        if (odometerImage) {
+          odometerImage.style.display = "inline";
+        }
+        if (initialImage) {
+          initialImage.style.display = "inline";
+        }
+        if (finalImage) {
+          finalImage.style.display = "inline";
+        }
+      }
+      window.print();
+    });
+  });
+</script>

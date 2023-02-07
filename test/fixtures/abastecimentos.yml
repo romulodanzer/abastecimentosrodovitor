@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  filial: MyString
+  equipemento: MyString
+  motorista: MyString
+  hodometro: 1
+  foto_hodometro: MyString
+  qtd: 9.99
+  inicial: 1
+  foto_inicial: MyString
+  final: 9.99
+  foto_final: MyString
+  motorista: MyString
+
+two:
+  filial: MyString
+  equipemento: MyString
+  motorista: MyString
+  hodometro: 1
+  foto_hodometro: MyString
+  qtd: 9.99
+  inicial: 1
+  foto_inicial: MyString
+  final: 9.99
+  foto_final: MyString
+  motorista: MyString
